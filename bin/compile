@@ -58,9 +58,10 @@ echo "-----> bundle_dest $BUNDLE_DEST"
 # should be no-op for any builds that don't have mobile targets.
 HOME=$METEOR_DIR $METEOR remove-platform ios android
 # </hack>
+echo "-----> bundling"
 HOME=$METEOR_DIR $METEOR build --directory $BUNDLE_DEST
 echo "-----> bundled"
-ls $BUNDLE_DEST
+HOME=$METEOR_DIR $METEOR --version
 echo "-----> Moving"
 mv $BUNDLE_DEST/bundle "$COMPILE_DIR/app"
 rmdir $BUNDLE_DEST
