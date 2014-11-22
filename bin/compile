@@ -60,8 +60,8 @@ HOME=$METEOR_DIR $METEOR remove-platform ios android
 # </hack>
 echo "-----> bundling"
 HOME=$METEOR_DIR $METEOR build --directory $BUNDLE_DEST
-echo "-----> bundled"
-HOME=$METEOR_DIR $METEOR --version
+echo "-----> rebundling"
+HOME=$METEOR_DIR $METEOR build --directory $BUNDLE_DEST
 echo "-----> Moving"
 mv $BUNDLE_DEST/bundle "$COMPILE_DIR/app"
 rmdir $BUNDLE_DEST
