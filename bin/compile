@@ -56,7 +56,7 @@ echo "-----> bundle_dest $BUNDLE_DEST"
 # Temporary hack to address meteor failing to bundle if mobile targets are
 # included but server URL is not (issue #2).  Remove mobile targets. This
 # should be no-op for any builds that don't have mobile targets.
-HOME=$METEOR_DIR $METEOR remove-platform ios android
+HOME=$METEOR_DIR $METEOR
 # </hack>
 echo "-----> bundling"
 HOME=$METEOR_DIR $METEOR build --directory $BUNDLE_DEST
