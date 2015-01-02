@@ -54,10 +54,10 @@ BUNDLE_DEST="$BUILDPACK_DIR/build-XXXX"
 echo "-----> bundle_dest $BUNDLE_DEST"
 echo "-----> bundling"
 HOME=$METEOR_DIR $METEOR bundle $BUNDLE_DEST
-echo "-----> rebundling"
-HOME=$METEOR_DIR $METEOR bundle $BUNDLE_DEST
+echo "-----> untarring"
+tar -C "$COMPILE_DIR" -zxvf $BUNDLE_DEST
 echo "-----> Moving"
-tar -C "$COMPILE_DIR/app" -zxvf $BUNDLE_DEST
+mv "$COMPILE_DIR/bundle" "$COMPILE_DIR/app"
 rm $BUNDLE_DEST
 
 # If we use npm, run npm install.
